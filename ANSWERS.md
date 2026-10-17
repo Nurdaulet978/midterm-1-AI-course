@@ -9,7 +9,13 @@ Fingerprint:  bcb6a68a
 
 ## AI-use declaration
 
-(About half a page: which assistants or tools you used and for what. If you used none, say so.)
+During the midterm were used 2 AI assistants:
+
+Claude - to get simpler explanation of the formulas and to calculate data for the annual cost in the part 1c (B, k=3; B, k=5).
+Also, it was used to translate the instruction from GitHub and to receive about each part.
+
+ChatGPT - to fix the error with git push command, to get information from lectures in short format (retelling) and explain it in a simple way.
+
 
 ## Part 1: Retrieval and cost decision
 
