@@ -31,14 +31,14 @@ recall@1 = 18/60 = 0.3
 
 recall@3 = (18+20) / 60 = 0.63 
 
-recall@5 = (18+20+5) / 60 = 0.716
+recall@5 = (18+20+5) / 60 = 0.7167
 
 
 
 | config | recall@1 | recall@3 | recall@5 | MRR@10 |
 |---|----------|----------|----------|---|
 | A | 0.5      | 0.66     | 0.73     |0.5946 |
-| B | 0.3      | 0.63     | 0.716    |0.4651 |
+| B | 0.3      | 0.63     | 0.7167   |0.4651 |
 
 ### 1b. Recall and 95 % Wilson interval of each candidate (recall at its own k)
 
@@ -49,7 +49,7 @@ recall@5 = (18+20+5) / 60 = 0.716
 | A, k=3 | 0.66     | 0.5406 | 0.7727 |
 | A, k=5 | 0.73     | 0.6099 | 0.8287 |
 | B, k=3 | 0.63     | 0.5068 | 0.7438 |
-| B, k=5 | 0.716    | 0.5923 | 0.8149 |
+| B, k=5 | 0.7167   | 0.5923 | 0.8149 |
 
 ### 1c. Annual model cost in USD
 
@@ -76,23 +76,23 @@ KK: (3312 * 2 + 523 * 10)/1 000 000 = 0,011854
 
 
 For A, k=5:
-EN: 194 + 43 + 5 * 260 = 1540
+EN: 194 + 43 + 5 * 260 = 1537
 RU: 194 + 74 + 5 * 447 = 2503
 KK: 194 + 163 + 5 * 985 = 5282
 
-EN: (1540 * 2 + 138 * 10)/1 000 000 = 0,00446 
+EN: (1537 * 2 + 138 * 10)/1 000 000 = 0,004454
 RU: (2503 * 2 + 237 * 10)/1 000 000 = 0,007376
 KK: (5282 * 2 + 523 * 10)/1 000 000 = 0,015794
 
-0,23 * 0,00446 + 0,41 * 0,007376 + 0,36 * 0,015794 = 0,0097358
-0,0097358 * 10 500 * 365 = 37,312.4535
+0,23 * 0,004454 + 0,41 * 0,007376 + 0,36 * 0,015794 = 0,00973442
+0,00973442 * 10 500 * 365 = 37,307.16465
 
 The same mechanism for B, k=3 and B, k = 5.
 
 | candidate | annual cost  |
 |---|--------------|
 | A, k=3 | $28,144.88   |
-| A, k=5 | $37,312.4535 |
+| A, k=5 | $37,307.16465 |
 | B, k=3 | $18,422.60   |
 | B, k=5 | $21,103.35   |
 
@@ -165,25 +165,25 @@ The main disadvantage is that L makes more extraction mistakes, especially on po
 
 ### Q1
 
-Number:
-Why (at most 40 words):
+Number: 1.66
+Why (at most 40 words): Kazakh uses 2.29 times more bytes than English, mainly because Cyrillic characters need more bytes. But its token count is 3.79 times higher. The tokenizer adds another 1.66 times to the difference by splitting Kazakh text into more tokens.
 
 ### Q2
 
-Number:
-Why (at most 40 words):
+Number: 35.1%
+Why (at most 40 words): The English chunk contains 789 E5 tokens, but the model can process only 512. This means 277 tokens are cut off. Russian and Kazakh fit within the limit. Information in the cut-off part cannot be retrieved from this chunk.
 
 ### Q3
 
-Number:
-Why (at most 40 words):
+Number: 71.1%
+Why (at most 40 words): With top-p set to 0.8, only Monday and Friday remain because their combined probability reaches 0.8007. Their probabilities are then adjusted to add up to 100%. Lowering temperature makes the distribution more concentrated but does not automatically remove low-probability tokens.
 
 ### Q4
 
-Number:
-Why (at most 40 words):
+Number: 24.6%
+Why (at most 40 words): I included account numbers and birthdays because they are arbitrary facts that may be difficult to remember. I excluded multiplication and arithmetic sequences because they follow rules. Telling a model not to invent facts does not remove the underlying uncertainty.
 
 ### Q5
 
-Number:
-Why (at most 40 words):
+Number: 2.60
+Why (at most 40 words): This model processes 52 tokens per parameter, compared with 20 in the Chinchilla example. Its ratio is 2.60 times higher. According to the Chinchilla compute-optimal approach, this suggests the model is over-trained relative to its parameter count.
