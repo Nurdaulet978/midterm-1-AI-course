@@ -38,12 +38,12 @@ recall@5 = (18+20+5) / 60 = 0.716
 
 ### 1b. Recall and 95 % Wilson interval of each candidate (recall at its own k)
 
-| candidate | recall@k | lower | upper |
-|---|---|---|---|
-| A, k=3 | | | |
-| A, k=5 | | | |
-| B, k=3 | | | |
-| B, k=5 | | | |
+| candidate | recall@k | lower  | upper  |
+|---|----------|--------|--------|
+| A, k=3 | 0.66     | 0.5406 | 0.7727 |
+| A, k=5 | 0.73     | 0.6099 | 0.8287 |
+| B, k=3 | 0.63     | 0.5068 | 0.7438 |
+| B, k=5 | 0.716    | 0.5923 | 0.8149 |
 
 ### 1c. Annual model cost in USD
 
