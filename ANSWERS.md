@@ -22,7 +22,7 @@ For A:
 recall@1 = 30/60 = 1/2 = 0.5
 recall@3 = (10+30) / 60 = 40/60 = 0.66
 recall@5 = (10+30+4) / 60 = 0.73
-MRP@10 = 
+
 
 For B:
 recall@1 = 18/60 = 0.3
@@ -33,8 +33,8 @@ recall@5 = (18+20+5) / 60 = 0.716
 
 | config | recall@1 | recall@3 | recall@5 | MRR@10 |
 |---|----------|----------|----------|---|
-| A | 0.5      | 0.66     | 0.73     | |
-| B | 0.3      | 0.63     | 0.716    | |
+| A | 0.5      | 0.66     | 0.73     |0.5946 |
+| B | 0.3      | 0.63     | 0.716    |0.4651 |
 
 ### 1b. Recall and 95 % Wilson interval of each candidate (recall at its own k)
 
