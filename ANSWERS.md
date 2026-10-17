@@ -115,14 +115,51 @@ Add about 200 test questions in Kazakh and recalculate the recall for B.5 and A.
 
 ### 2a. Numbers
 
+Overall accuracy = sum of n_correct / sum of n_docs 
+For H: 163/180 = 0.9056
+
+For L: 148/180 = 0.8222 
+
+Weakest cell (language, condition)
+
+For each cell i of pipeline P:
+
+accuracy_i = n_correct_i ÷ n_docs_i
+
+weakest cell = the cell with min(accuracy_i)
+
+H: KK, degraded, 21 ÷ 30
+L: KK, degraded, 21 ÷ 30
+
 | pipeline | overall accuracy | weakest cell (language, condition) | accuracy there | lower | upper | annual cost |
-|---|---|---|---|---|---|---|
-| H | | | | | | |
-| L | | | | | | |
+|---|------------------|----------------------|-------------|---|---|---|
+| H | 0.9056           | KK, degraded | 21/30 = 0.7 |0.5212 |0.8334 |29 105.10 |
+| L | 0.8222           | KK, degraded | 21/30 = 0.7 |0.5212 |0.8334 |10 800 |
 
 Personal-data pages per year sent abroad under H:
 
 ### 2b. Memo (at most 300 words)
+Recommendation: Pipeline L
+
+### Who gets the worst results?
+
+Pipeline H has higher overall accuracy than L (0.9056 vs. 0.8222), but this does not mean it works better for everyone. Both pipelines perform worst on Kazakh invoices with poor-quality scans: they correctly process 21 out of 30 invoices (70%). The 95% confidence interval is [0.52; 0.83] for both pipelines, so H does not improve results for this group. 
+Pipeline L also has lower accuracy on poor-quality Russian (0.77) and English (0.80) scans. However, each group has only 30 invoices, so I cannot be completely sure about these differences.
+
+### Personal data
+
+About 28% of pages contain a person's name and IIN. Under pipeline H, around 613,200 pages per year would leave Kazakhstan. There are three important questions about personal data: Where is it sent? Who stores it? How long is it kept?
+With H, the scans are sent to a foreign data centre, and I do not know how long the provider keeps them. With L, the scans stay on our server in Kazakhstan, and the bank controls how long they are stored.
+Before using H, I would need to check how the provider stores data, whether it uses the data to train its models, and whether sending the data abroad follows Kazakhstan's Law No. 94-V. A statement from the provider alone does not prove that everything meets legal requirements.
+
+### How to protect personal data
+
+For pipeline L, I would allow access only to approved staff, automatically delete scans after 30 days, and check access logs every month. If we use H, the contract must clearly state that the provider cannot store the scans or use them for training. I would also hide parts of the IIN before sending the scans and check a sample of processed pages every month.
+
+### Final choice
+
+I would choose pipeline L. It costs $10,800 per year, compared with $29,105 for H, and keeps personal data inside Kazakhstan.
+The main disadvantage is that L makes more extraction mistakes, especially on poor-quality scans. To reduce this problem, I would send low-confidence results and poor-quality Kazakh scans for manual review. I would also test the pipeline on more invoices to get a clearer picture of its accuracy.
 
 ## Part 3: Explain your own numbers
 
