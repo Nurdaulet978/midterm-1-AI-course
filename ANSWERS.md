@@ -1,8 +1,8 @@
 # Midterm 1: answers
 
-GitHub username:
-Session code:
-Fingerprint:
+GitHub username: Nurdaulet978
+Session code: my_data/DATA.md, my_data/retrieval_ranks.csv and my_data/doc_results.csv
+Fingerprint:  bcb6a68a
 
 > Fill in the three lines above from `my_data/DATA.md`. Do not rename headings or table columns: a script reads the numbers.
 > Write only in the empty cells and lines. Percentages as 0.78 or 78 %, money as plain numbers.
@@ -15,10 +15,23 @@ Fingerprint:
 
 ### 1a. Metrics (all 60 questions)
 
+recall@k = (number of questions whose correct chunk has rank ≤ k) ÷ 60
+MRR@10 = (1 ÷ 60) × the sum of 1 ÷ rank over questions with rank ≤ 10 (rank 11 adds nothing).
+
+For A:
+recall@1 = /60
+recall@3 = /60 
+recall@5 = /60 
+
+For B:
+recall@1 = 
+recall@3 =  
+recall@5 = 
+
 | config | recall@1 | recall@3 | recall@5 | MRR@10 |
-|---|---|---|---|---|
-| A | | | | |
-| B | | | | |
+|---|----------|----------|----------|---|
+| A | 0.5      | 0.05     | 0.016    | |
+| B | 0.3      |          |          | |
 
 ### 1b. Recall and 95 % Wilson interval of each candidate (recall at its own k)
 
